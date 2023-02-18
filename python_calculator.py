@@ -7,3 +7,6 @@ class Calculator:
 
     def mult(self, n1, n2):
         print(n1*n2)
+
+    def div(self, n1, n2):
+        pass
