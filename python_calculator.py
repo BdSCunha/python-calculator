@@ -1,41 +1,106 @@
+"""
+This module contains a simple calculator class that can perform basic
+arithmetic operations on two numbers.
+
+The Calculator class has four methods:
+- sum: Adds two numbers
+- sub: Subtracts one number from another
+- mult: Multiplies two numbers
+- div: Divides one number by another
+
+All methods take two arguments of type float and return None.
+If any of the arguments is not a float, a TypeError is raised.
+If the division by zero is attempted, a ZeroDivisionError is raised.
+
+Example usage:
+>>> calculator = Calculator()
+>>> calculator.sum(2.5, 3.7)
+6.2
+>>> calculator.sub(10, 5)
+5
+>>> calculator.mult(2.5, 3)
+7.5
+>>> calculator.div(10, 2)
+5.0
+"""
 import sys
 
 class Calculator:
-    def sum(self, first_number, second_number):
-        try:
-            print(f'Result: {first_number} + {second_number} = {first_number + second_number}\n')
-        except (TypeError, ValueError, OverflowError) as exc:
-            print(f'It was not possible to sum {first_number} and {second_number}...\n{type(exc).__name__}: {exc}\n')
+    """A simple calculator class that can perform basic mathematical operations"""
+    def sum(self, first_number: float, second_number: float) -> None:
+        """
+        Calculates the sum of two numbers and prints the result
 
-    def sub(self, first_number, second_number):
+        Args:
+            number_1 (float): The first number.
+            number_2 (float): The second number.
+        """
         try:
-            print(f'Result: {first_number} - {second_number} = {first_number - second_number}\n')
+            print(f'Result: {first_number} + {second_number} = \
+                {first_number + second_number}\n')
         except (TypeError, ValueError, OverflowError) as exc:
-            print(f'It was not possible to subtract {second_number} from {first_number}...\n{type(exc).__name__}: {exc}\n')
+            print(f'It was not possible to sum {first_number} and \
+                {second_number}...\n{type(exc).__name__}: {exc}\n')
 
-    def mult(self, first_number, second_number):
+    def sub(self, first_number: float, second_number: float) -> None:
+        """
+        Calculates the subtraction of two numbers and prints the result
+
+        Args:
+            number_1 (float): The first number.
+            number_2 (float): The second number.
+        """
         try:
-            print(f'Result: {first_number}*{second_number} = {first_number*second_number}\n')
+            print(f'Result: {first_number} - {second_number} = \
+                {first_number - second_number}\n')
         except (TypeError, ValueError, OverflowError) as exc:
-            print(f'It was not possible to multiply {first_number} and {second_number}...\n{type(exc).__name__}: {exc}\n')
+            print(f'It was not possible to subtract {second_number} \
+                from {first_number}...\n{type(exc).__name__}: {exc}\n')
 
-    def div(self, first_number, second_number):
+    def mult(self, first_number: float, second_number: float) -> None:
+        """
+        Calculates the multiplication between two numbers and prints the result
+
+        Args:
+            number_1 (float): The first number.
+            number_2 (float): The second number.
+        """
         try:
-            print(f'Result: {first_number}/{second_number} = {first_number/second_number}\n')
+            print(f'Result: {first_number}*{second_number} = \
+                {first_number*second_number}\n')
+        except (TypeError, ValueError, OverflowError) as exc:
+            print(f'It was not possible to multiply {first_number} and \
+                {second_number}...\n{type(exc).__name__}: {exc}\n')
+
+    def div(self, first_number: float, second_number: float) -> None:
+        """
+        Calculates the division between two numbers and prints the result
+
+        Args:
+            number_1 (float): The first number.
+            number_2 (float): The second number.
+        """
+        try:
+            print(f'Result: {first_number}/{second_number} = \
+                {first_number/second_number}\n')
         except ZeroDivisionError as exc:
             print(f'Cannot divide by zero...\n{type(exc).__name__}: {exc}')
         except (TypeError, ValueError, OverflowError) as exc:
-            print(f'It was not possible to divide {first_number} by {second_number}...\n{type(exc).__name__}: {exc}\n')
+            print(f'It was not possible to divide {first_number} by \
+                {second_number}...\n{type(exc).__name__}: {exc}\n')
 
 def main():
+    """Main function called when __name__ == '__main__'"""
     try:
-        number_1 = float(input('\nType the first number: ').replace(',', '.'))
+        number_1 = float(input('\nType the first number: ')\
+            .replace(',', '.'))
     except (TypeError, ValueError, OverflowError) as exc:
         print(f'{type(exc).__name__}: {exc}\n')
         sys.exit(1)
 
     try:
-        number_2 = float(input('Type the second number: ').replace(',', '.'))
+        number_2 = float(input('Type the second number: ')\
+            .replace(',', '.'))
     except (TypeError, ValueError, OverflowError) as exc:
         print(f'{type(exc).__name__}: {exc}\n')
         sys.exit(1)
