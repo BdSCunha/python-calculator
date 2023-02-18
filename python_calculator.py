@@ -9,4 +9,4 @@ class Calculator:
         print(n1*n2)
 
     def div(self, n1, n2):
-        pass
+        print(n1/n2)
