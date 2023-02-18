@@ -1,19 +1,44 @@
+import sys
+
 class Calculator:
-    def sum(self, n1, n2):
-        print(n1 + n2)
+    def sum(self, first_number, second_number):
+        try:
+            print(f'Result: {first_number} + {second_number} = {first_number + second_number}\n')
+        except (TypeError, ValueError, OverflowError) as exc:
+            print(f'It was not possible to sum {first_number} and {second_number}...\n{type(exc).__name__}: {exc}\n')
 
-    def sub(self, n1, n2):
-        print(n1 - n2)
+    def sub(self, first_number, second_number):
+        try:
+            print(f'Result: {first_number} - {second_number} = {first_number - second_number}\n')
+        except (TypeError, ValueError, OverflowError) as exc:
+            print(f'It was not possible to subtract {second_number} from {first_number}...\n{type(exc).__name__}: {exc}\n')
 
-    def mult(self, n1, n2):
-        print(n1*n2)
+    def mult(self, first_number, second_number):
+        try:
+            print(f'Result: {first_number}*{second_number} = {first_number*second_number}\n')
+        except (TypeError, ValueError, OverflowError) as exc:
+            print(f'It was not possible to multiply {first_number} and {second_number}...\n{type(exc).__name__}: {exc}\n')
 
-    def div(self, n1, n2):
-        print(n1/n2)
+    def div(self, first_number, second_number):
+        try:
+            print(f'Result: {first_number}/{second_number} = {first_number/second_number}\n')
+        except ZeroDivisionError as exc:
+            print(f'Cannot divide by zero...\n{type(exc).__name__}: {exc}')
+        except (TypeError, ValueError, OverflowError) as exc:
+            print(f'It was not possible to divide {first_number} by {second_number}...\n{type(exc).__name__}: {exc}\n')
 
 def main():
-    number_1 = float(input('\nType the first number: '))
-    number_2 = float(input('Type the second number: '))
+    try:
+        number_1 = float(input('\nType the first number: ').replace(',', '.'))
+    except (TypeError, ValueError, OverflowError) as exc:
+        print(f'{type(exc).__name__}: {exc}\n')
+        sys.exit(1)
+
+    try:
+        number_2 = float(input('Type the second number: ').replace(',', '.'))
+    except (TypeError, ValueError, OverflowError) as exc:
+        print(f'{type(exc).__name__}: {exc}\n')
+        sys.exit(1)
 
     operation = int(input(f'\nChoose an option:\
             \n1. SUM numbers\
@@ -23,6 +48,8 @@ def main():
             \n5. DIVIDE {number_1} by {number_2}\
             \n6. DIVIDE {number_2} by {number_1}\
             \nYour option: '))
+
+    print()
 
     calculator = Calculator()  # Create a new Calculator instance
     if operation == 1:
@@ -37,6 +64,8 @@ def main():
         calculator.div(number_1, number_2)
     elif operation == 6:
         calculator.div(number_2, number_1)
+    else:
+        print('Invalid option selected...\n')
 
 if __name__ == '__main__':
     raise SystemExit(main())
