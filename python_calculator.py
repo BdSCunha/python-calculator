@@ -4,3 +4,6 @@ class Calculator:
 
     def sub(self, n1, n2):
         print(n1 - n2)
+
+    def mult(self, n1, n2):
+        pass
