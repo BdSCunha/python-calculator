@@ -90,6 +90,12 @@ class Calculator:
                 {second_number}...\n{type(exc).__name__}: {exc}\n')
 
     def pow(self, first_number: float, second_number: float) -> None:
+        """_summary_
+
+        Args:
+            first_number (float): _description_
+            second_number (float): _description_
+        """
         try:
             print(f'Result: {first_number}**{second_number} = \
                 {first_number**second_number}\n')
