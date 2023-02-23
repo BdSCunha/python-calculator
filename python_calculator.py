@@ -89,6 +89,20 @@ class Calculator:
             print(f'It was not possible to divide {first_number} by \
                 {second_number}...\n{type(exc).__name__}: {exc}\n')
 
+    def pow(self, first_number: float, second_number: float) -> None:
+        """_summary_
+
+        Args:
+            first_number (float): _description_
+            second_number (float): _description_
+        """
+        try:
+            print(f'Result: {first_number}**{second_number} = \
+                {first_number**second_number}\n')
+        except (TypeError, ValueError, OverflowError) as exc:
+            print(f'It was not possible to pow {first_number} by \
+                {second_number}...\n{type(exc).__name__}: {exc}\n')
+
 def main():
     """Main function called when __name__ == '__main__'"""
     try:
